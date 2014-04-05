@@ -16,23 +16,32 @@ public class DisplayGUI implements DisplayStrategy {
     private int recordNum;
 
     public DisplayGUI() {
-        setRecordNum(Integer.parseInt(JOptionPane.showInputDialog("Enter the record Number:")));
+        try{
+            setRecordNum(Integer.parseInt(JOptionPane.showInputDialog("Enter the record Number:")));
+        }catch(NumberFormatException nfe){
+            display("Must be a number. " + nfe.getMessage());
+        }
     }
 
     public final int getRecordNum() {
         return recordNum;
     }
 
-    public final void setRecordNum(final int recordNum) throws IllegalArgumentException {
+    public final void setRecordNum(final int recordNum){
         this.recordNum = recordNum;
     }
 
     @Override
-    public void display(String record) throws IllegalArgumentException{
+    public final void display(final String record) throws IllegalArgumentException{
         if(record.isEmpty()){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Must not be 0");
         }
-         JOptionPane.showMessageDialog(null, record, "Record", JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null, record, null, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    @Override
+    public final void display(final String record,final String header) {
+         JOptionPane.showMessageDialog(null, record, header, JOptionPane.INFORMATION_MESSAGE);
     }
     
     @Override

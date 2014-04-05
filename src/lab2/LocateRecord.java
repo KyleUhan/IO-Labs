@@ -40,7 +40,6 @@ public class LocateRecord {
             while (line != null) {
                 if (count > startPosition && count <= endPosition) {
                     valueHolder += line + "\n";
-                    // System.out.println(line);
                 }
                 count++;
                 line = input.readLine();
@@ -75,8 +74,8 @@ public class LocateRecord {
         return file;
     }
 
-    public final void setFile(final FileChecker file) throws NullPointerException{
-        if(file == null){
+    public final void setFile(final FileChecker file) throws NullPointerException {
+        if (file == null) {
             throw new NullPointerException();
         }
         this.file = file;
