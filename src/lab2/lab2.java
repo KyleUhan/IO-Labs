@@ -20,6 +20,8 @@ public class lab2 {
             GUI.display(lr.getRecordContent());
         } catch (IndexOutOfBoundsException o) {
             GUI.display(o.getLocalizedMessage());
+        } catch (NullPointerException n){
+            GUI.display(n.getMessage());
         }
         
     }

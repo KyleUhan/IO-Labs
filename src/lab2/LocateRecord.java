@@ -15,12 +15,12 @@ import java.util.Set;
  * @author Kyle
  */
 public class LocateRecord {
-    
+
     private String recordContent = "";
     private int recordNumber;
     private FileChecker file;
 
-    public LocateRecord(final int recordNumber, final FileChecker file) throws IndexOutOfBoundsException {
+    public LocateRecord(final int recordNumber, final FileChecker file) throws IndexOutOfBoundsException, NullPointerException {
         setFile(file);
         setRecordNumber(recordNumber);
         getRecord();
@@ -40,7 +40,7 @@ public class LocateRecord {
             while (line != null) {
                 if (count > startPosition && count <= endPosition) {
                     valueHolder += line + "\n";
-                   // System.out.println(line);
+                    // System.out.println(line);
                 }
                 count++;
                 line = input.readLine();
@@ -57,7 +57,7 @@ public class LocateRecord {
                 System.out.println(ioe.getMessage());
             }
         }
-        
+
     }
 
     public final int getRecordNumber() {
@@ -75,7 +75,10 @@ public class LocateRecord {
         return file;
     }
 
-    public final void setFile(final FileChecker file) {
+    public final void setFile(final FileChecker file) throws NullPointerException{
+        if(file == null){
+            throw new NullPointerException();
+        }
         this.file = file;
     }
 
