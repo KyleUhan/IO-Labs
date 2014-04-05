@@ -20,7 +20,7 @@ public class FileChecker {
     private final static int RECORD_SIZE = 6;
     private List<String> fileContent;
 
-    private final File file = new File(File.separatorChar + "Users" + File.separatorChar
+    private File file = new File(File.separatorChar + "Users" + File.separatorChar
             + "Kyle" + File.separatorChar + "Desktop" + File.separatorChar
             + "Java" + File.separatorChar + "lab1.txt");
 
@@ -48,6 +48,17 @@ public class FileChecker {
     public final File getFile() {
         return file;
     }
+
+    //Possible dynamic file setter...not crazy about it since the entire
+    //path is needed..will work on it
+    //Also debating about validation needs - My first thought is that the String
+    //argument doesn't need any specific validation as the FileNotFoundException
+    //should cover just about everything...the file either exists or it doesn't.
+    public final void setFile(String filePath) throws FileNotFoundException{
+        this.file = new File(filePath);
+    }
+    
+    
 
     public final List<String> getFileContent() {
         return fileContent;
