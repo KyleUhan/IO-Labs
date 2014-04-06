@@ -54,25 +54,33 @@ public class FileChecker {
     //Also debating about validation needs - My first thought is that the String
     //argument doesn't need any specific validation as the FileNotFoundException
     //should cover just about everything...the file either exists or it doesn't.
-    public final void setFile(String filePath) throws FileNotFoundException{
+    public final void setFile(String filePath) throws FileNotFoundException {
         this.file = new File(filePath);
     }
-    
-    
 
     public final List<String> getFileContent() {
         return fileContent;
     }
 
-    public final void setFileContent(final List<String> fileContent) {
+    public final void setFileContent(final List<String> fileContent) throws NullPointerException {
+        if (fileContent == null) {
+            throw new NullPointerException("Must not be Null");
+        }
         this.fileContent = fileContent;
     }
+
+    public static int getRECORD_SIZE() {
+        return RECORD_SIZE;
+    }
+    
+    
 
     public static void main(String[] args) throws IOException {
         FileChecker fc = new FileChecker();
         for (String s : fc.getFileContent()) {
             System.out.println(s);
         }
+
         System.out.println("Records in file: " + fc.fileSize());
 
     }
