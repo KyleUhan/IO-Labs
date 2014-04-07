@@ -8,9 +8,6 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Kyle
@@ -71,18 +68,6 @@ public class FileChecker {
 
     public static int getRECORD_SIZE() {
         return RECORD_SIZE;
-    }
-    
-    
-
-    public static void main(String[] args) throws IOException {
-        FileChecker fc = new FileChecker();
-        for (String s : fc.getFileContent()) {
-            System.out.println(s);
-        }
-
-        System.out.println("Records in file: " + fc.fileSize());
-
     }
 
 }

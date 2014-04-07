@@ -16,7 +16,7 @@ public class LocateRecord {
         setFile(file);
     }
 
-    public final String getRecord(final int recordNum) {
+    public final String getRecord(final int recordNum) throws IllegalArgumentException{
         validateRecordNum(recordNum);
         int startPosition;
         if (recordNum != MIN_RECORD_NUMBER) {
@@ -34,7 +34,7 @@ public class LocateRecord {
         return recordHolder;
     }
 
-    public final String getRecordCity(final int recordNum) {
+    public final String getRecordCity(final int recordNum) throws IllegalArgumentException{
         int cityPosition = 3;
         int cityArrayPosition;
         validateRecordNum(recordNum);
@@ -67,17 +67,6 @@ public class LocateRecord {
             throw new IllegalArgumentException("Record number must be between "
                     + MIN_RECORD_NUMBER + " and " + getFile().fileSize());
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        FileChecker fc = new FileChecker();
-        LocateRecord lr = new LocateRecord(fc);
-        System.out.println(lr.getRecord(3));
-        System.out.println(lr.getRecordCity(3));
-        
-        System.out.println(lr.getRecord(2));
-        System.out.println(lr.getRecordCity(2));
-
     }
 
 }
