@@ -23,7 +23,7 @@ public class LocateRecord {
             startPosition = recordNum * FileChecker.getRECORD_SIZE()
                     - FileChecker.getRECORD_SIZE();
         } else {
-            startPosition = recordNum - 1;
+            startPosition = recordNum - MIN_RECORD_NUMBER;
         }
         int endPosition = startPosition + FileChecker.getRECORD_SIZE();
         String recordHolder = "";
@@ -44,7 +44,7 @@ public class LocateRecord {
                     - FileChecker.getRECORD_SIZE() + cityPosition;
             city = getFile().getFileContent().get(cityArrayPosition);
         } else {
-            cityArrayPosition = recordNum - 1 + cityPosition;
+            cityArrayPosition = recordNum - MIN_RECORD_NUMBER + cityPosition;
             city = getFile().getFileContent().get(cityArrayPosition);
         }
 
