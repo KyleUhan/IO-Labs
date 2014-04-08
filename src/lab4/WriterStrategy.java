@@ -6,10 +6,17 @@
 
 package lab4;
 
+import java.io.IOException;
+import java.util.List;
+
 /**
  *
  * @author Kyle
  */
 public interface WriterStrategy {
+    
+    public abstract void writeToFile(String lineToWrite) throws IOException;
+    
+    public abstract void writeToFile(List<String> arrayToWrite) throws IOException;
     
 }
