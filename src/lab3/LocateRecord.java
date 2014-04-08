@@ -44,7 +44,7 @@ public class LocateRecord {
                     - FileManager.getRECORD_SIZE() + cityPosition;
             city = getFile().getFileContent().get(cityArrayPosition);
         } else {
-            cityArrayPosition = recordNum - MIN_RECORD_NUMBER + cityPosition;
+            cityArrayPosition = cityPosition;
             city = getFile().getFileContent().get(cityArrayPosition);
         }
 
