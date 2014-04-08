@@ -9,10 +9,10 @@ import java.io.IOException;
  */
 public class LocateRecord {
 
-    private FileChecker file;
+    private FileManager file;
     private static final int MIN_RECORD_NUMBER = 1;
 
-    public LocateRecord(FileChecker file) throws NullPointerException {
+    public LocateRecord(FileManager file) throws NullPointerException {
         setFile(file);
     }
 
@@ -20,12 +20,12 @@ public class LocateRecord {
         validateRecordNum(recordNum);
         int startPosition;
         if (recordNum != MIN_RECORD_NUMBER) {
-            startPosition = recordNum * FileChecker.getRECORD_SIZE()
-                    - FileChecker.getRECORD_SIZE();
+            startPosition = recordNum * FileManager.getRECORD_SIZE()
+                    - FileManager.getRECORD_SIZE();
         } else {
             startPosition = recordNum - MIN_RECORD_NUMBER;
         }
-        int endPosition = startPosition + FileChecker.getRECORD_SIZE();
+        int endPosition = startPosition + FileManager.getRECORD_SIZE();
         String recordHolder = "";
         for (int i = startPosition; i < endPosition; i++) {
             recordHolder += getFile().getFileContent().get(i) + "\n";
@@ -40,8 +40,8 @@ public class LocateRecord {
         validateRecordNum(recordNum);
         String city;
         if (recordNum != MIN_RECORD_NUMBER) {
-            cityArrayPosition = recordNum * FileChecker.getRECORD_SIZE()
-                    - FileChecker.getRECORD_SIZE() + cityPosition;
+            cityArrayPosition = recordNum * FileManager.getRECORD_SIZE()
+                    - FileManager.getRECORD_SIZE() + cityPosition;
             city = getFile().getFileContent().get(cityArrayPosition);
         } else {
             cityArrayPosition = recordNum - MIN_RECORD_NUMBER + cityPosition;
@@ -51,11 +51,11 @@ public class LocateRecord {
         return city;
     }
 
-    public final FileChecker getFile() {
+    public final FileManager getFile() {
         return file;
     }
 
-    public final void setFile(final FileChecker file) throws NullPointerException {
+    public final void setFile(final FileManager file) throws NullPointerException {
         if (file == null) {
             throw new NullPointerException("Must not be Null");
         }

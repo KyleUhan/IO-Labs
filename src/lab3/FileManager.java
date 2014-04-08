@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Kyle
  */
-public class FileChecker {
+public class FileManager {
 
     private final static int RECORD_SIZE = 6;
     private List<String> fileContent;
@@ -21,7 +21,7 @@ public class FileChecker {
             + "Kyle" + File.separatorChar + "Desktop" + File.separatorChar
             + "Java" + File.separatorChar + "lab1.txt");
 
-    public FileChecker() throws IOException {
+    public FileManager() throws IOException {
         setFileContent(new ArrayList<String>());
         transferFileContents();
     }

@@ -8,17 +8,17 @@ import java.text.ParseException;
  * @author Kyle
  */
 public class Lab3_StartUp {
-    
+
     public static void main(String[] args) {
         //This represents service class
-        
+
         DisplayStrategy output = new DisplayGUI();
         InputStrategy input = new InputGUI();
-        
+
         int recordNum;
         try {
             recordNum = input.inputInt("Enter the Record Number: ", "RECORD SEARCH");
-            FileChecker fileChecker = new FileChecker();
+            FileManager fileChecker = new FileManager();
             LocateRecord locate = new LocateRecord(fileChecker);
             output.display(locate.getRecord(recordNum), "Record");
             output.display(locate.getRecordCity(recordNum), "Record City");
@@ -29,6 +29,6 @@ public class Lab3_StartUp {
         } catch (ParseException pe) {
             output.display(pe.getMessage());
         }
-        
+
     }
 }
