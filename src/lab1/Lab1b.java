@@ -29,12 +29,12 @@ public class Lab1b {
             String line = input.readLine();
             int count = 0;
             while (line != null) {
-                if(count > 5 && count < 12){
-                System.out.println(line);
+                if (count > 5 && count < 12) {
+                    System.out.println(line);
                 }
                 count++;
                 line = input.readLine();
-                
+
             }
 
         } catch (IOException ioe) {
