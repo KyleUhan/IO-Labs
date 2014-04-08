@@ -8,7 +8,7 @@ package lab2;
 public class lab2 {
     
     public static void main(String[] args) {
-        //The GUI display handles both input and output for now
+        //The GUI display handles both input and output for now...
         //Also, the input is hard coded into the GUI constructor - that will
         //also change.
         

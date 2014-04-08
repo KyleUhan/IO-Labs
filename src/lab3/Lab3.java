@@ -1,28 +1,34 @@
 package lab3;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 /**
  *
  * @author Kyle
  */
 public class Lab3 {
-
+    
     public static void main(String[] args) {
-        int recordNum = 5;
+        //This represents service class
         
         DisplayStrategy output = new DisplayGUI();
-
+        InputStrategy input = new InputGUI();
+        
+        int recordNum;
         try {
+            recordNum = input.inputInt("Enter the Record Number: ", "RECORD SEARCH");
             FileChecker fileChecker = new FileChecker();
             LocateRecord locate = new LocateRecord(fileChecker);
-            output.display(locate.getRecord(recordNum));
-            output.display(locate.getRecordCity(recordNum));
+            output.display(locate.getRecord(recordNum), "Record");
+            output.display(locate.getRecordCity(recordNum), "Record City");
         } catch (IOException ex) {
             output.display(ex.getMessage());
-        } catch (IllegalArgumentException iae){
+        } catch (IllegalArgumentException iae) {
             output.display(iae.getLocalizedMessage());
+        } catch (ParseException pe) {
+            output.display(pe.getMessage());
         }
-
+        
     }
 }
