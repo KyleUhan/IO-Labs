@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Kyle
@@ -46,13 +47,12 @@ public class FileManager {
         return file;
     }
 
-    //Possible dynamic file setter...not crazy about it since the entire
-    //path is needed..will work on it
-    //Also debating about validation needs - My first thought is that the String
-    //argument doesn't need any specific validation as the FileNotFoundException
-    //should cover just about everything...the file either exists or it doesn't.
-    public final void setFile(String filePath) throws FileNotFoundException {
-        this.file = new File(filePath);
+    public final void setFile(final String filePath) throws FileNotFoundException {
+        File tempFile = new File(filePath);
+        if (!tempFile.exists()) {
+            throw new FileNotFoundException("Unable to locate file");
+        }
+        this.file = tempFile;
     }
 
     public final List<String> getFileContent() {
