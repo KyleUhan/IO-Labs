@@ -7,7 +7,7 @@ import java.text.ParseException;
  *
  * @author Kyle
  */
-public class Lab3 {
+public class Lab3_StartUp {
     
     public static void main(String[] args) {
         //This represents service class

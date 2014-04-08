@@ -5,7 +5,7 @@ package lab2;
  *
  * @author Kyle
  */
-public class lab2 {
+public class Lab2_StartUp {
     
     public static void main(String[] args) {
         //The GUI display handles both input and output for now...
